@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1583344612">
-  <project timestamp="1583344612">
+<coverage generated="1583349640">
+  <project timestamp="1583349640">
     <package name="App\Console">
       <file name="C:\Users\Uns\Desktop\Testes\TruckPad\backend\app\Console\Kernel.php">
         <class name="App\Console\Kernel" namespace="App\Console">
           <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
         </class>
-        <line num="25" type="method" name="schedule" visibility="protected" complexity="1" crap="1" count="11"/>
-        <line num="28" type="stmt" count="11"/>
+        <line num="25" type="method" name="schedule" visibility="protected" complexity="1" crap="1" count="17"/>
+        <line num="28" type="stmt" count="17"/>
         <metrics loc="29" ncloc="14" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
       </file>
     </package>
@@ -16,15 +16,15 @@
         <class name="App\Driver" namespace="App">
           <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
         </class>
-        <line num="24" type="method" name="tracks" visibility="public" complexity="1" crap="1" count="4"/>
-        <line num="26" type="stmt" count="4"/>
+        <line num="24" type="method" name="tracks" visibility="public" complexity="1" crap="1" count="8"/>
+        <line num="26" type="stmt" count="8"/>
         <metrics loc="28" ncloc="20" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
       </file>
       <file name="C:\Users\Uns\Desktop\Testes\TruckPad\backend\app\Track.php">
         <class name="App\Track" namespace="App">
           <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
         </class>
-        <metrics loc="19" ncloc="14" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        <metrics loc="24" ncloc="19" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
       <file name="C:\Users\Uns\Desktop\Testes\TruckPad\backend\app\Type.php">
         <class name="App\Type" namespace="App">
@@ -77,7 +77,7 @@
         <line num="39" type="stmt" count="0"/>
         <line num="40" type="stmt" count="0"/>
         <line num="41" type="stmt" count="0"/>
-        <line num="50" type="method" name="qtdVehicles" visibility="public" complexity="3" crap="4.41" count="1"/>
+        <line num="50" type="method" name="hasVehiclesQtd" visibility="public" complexity="3" crap="4.41" count="1"/>
         <line num="53" type="stmt" count="1"/>
         <line num="55" type="stmt" count="1"/>
         <line num="56" type="stmt" count="1"/>
@@ -170,11 +170,66 @@
       </file>
       <file name="C:\Users\Uns\Desktop\Testes\TruckPad\backend\app\Http\Controllers\TrackController.php">
         <class name="App\Http\Controllers\TrackController" namespace="App\Http\Controllers">
-          <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+          <metrics complexity="11" methods="4" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="51" coveredstatements="33" elements="55" coveredelements="34"/>
         </class>
-        <metrics loc="11" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        <line num="23" type="method" name="tracking" visibility="public" complexity="3" crap="4.12" count="4"/>
+        <line num="28" type="stmt" count="4"/>
+        <line num="29" type="stmt" count="4"/>
+        <line num="31" type="stmt" count="4"/>
+        <line num="32" type="stmt" count="4"/>
+        <line num="33" type="stmt" count="4"/>
+        <line num="34" type="stmt" count="4"/>
+        <line num="35" type="stmt" count="4"/>
+        <line num="37" type="stmt" count="0"/>
+        <line num="38" type="stmt" count="0"/>
+        <line num="39" type="stmt" count="0"/>
+        <line num="40" type="stmt" count="0"/>
+        <line num="41" type="stmt" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="43" type="stmt" count="0"/>
+        <line num="53" type="method" name="store" visibility="public" complexity="4" crap="5.32" count="2"/>
+        <line num="55" type="stmt" count="2"/>
+        <line num="56" type="stmt" count="1"/>
+        <line num="57" type="stmt" count="1"/>
+        <line num="58" type="stmt" count="1"/>
+        <line num="59" type="stmt" count="1"/>
+        <line num="60" type="stmt" count="1"/>
+        <line num="61" type="stmt" count="1"/>
+        <line num="65" type="stmt" count="1"/>
+        <line num="66" type="stmt" count="1"/>
+        <line num="68" type="stmt" count="1"/>
+        <line num="69" type="stmt" count="1"/>
+        <line num="70" type="stmt" count="1"/>
+        <line num="72" type="stmt" count="1"/>
+        <line num="74" type="stmt" count="0"/>
+        <line num="75" type="stmt" count="0"/>
+        <line num="79" type="stmt" count="0"/>
+        <line num="81" type="stmt" count="0"/>
+        <line num="82" type="stmt" count="0"/>
+        <line num="83" type="stmt" count="0"/>
+        <line num="84" type="stmt" count="0"/>
+        <line num="85" type="stmt" count="0"/>
+        <line num="86" type="stmt" count="0"/>
+        <line num="87" type="stmt" count="0"/>
+        <line num="96" type="method" name="validateData" visibility="private" complexity="2" crap="2" count="2"/>
+        <line num="98" type="stmt" count="2"/>
+        <line num="100" type="stmt" count="2"/>
+        <line num="112" type="stmt" count="2"/>
+        <line num="113" type="stmt" count="1"/>
+        <line num="115" type="stmt" count="1"/>
+        <line num="123" type="method" name="setDataRequest" visibility="private" complexity="2" crap="2.01" count="1"/>
+        <line num="125" type="stmt" count="1"/>
+        <line num="126" type="stmt" count="0"/>
+        <line num="128" type="stmt" count="1"/>
+        <line num="129" type="stmt" count="1"/>
+        <line num="130" type="stmt" count="1"/>
+        <line num="131" type="stmt" count="1"/>
+        <line num="132" type="stmt" count="1"/>
+        <line num="133" type="stmt" count="1"/>
+        <line num="135" type="stmt" count="1"/>
+        <metrics loc="137" ncloc="115" classes="1" methods="4" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="51" coveredstatements="33" elements="55" coveredelements="34"/>
       </file>
     </package>
-    <metrics files="8" loc="389" ncloc="300" classes="4" methods="10" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="108" coveredstatements="74" elements="118" coveredelements="80"/>
+    <metrics files="8" loc="520" ncloc="409" classes="5" methods="14" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="159" coveredstatements="107" elements="173" coveredelements="114"/>
   </project>
 </coverage>

@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 class DriverController extends Controller
 {
     /**
-     * Display a listing of Drivers which has truckload.
+     * Display a listing of Drivers which has no truckload.
      *
      * @return \Illuminate\Http\Response
      */
@@ -47,7 +47,7 @@ class DriverController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function qtdVehicles()
+    public function hasVehiclesQtd()
     {
         try {
             $drivers = Driver::where('has_vehicles', 1)->get();

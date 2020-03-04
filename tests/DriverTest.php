@@ -1,13 +1,12 @@
 <?php
 
 use Laravel\Lumen\Testing\DatabaseMigrations;
-use Laravel\Lumen\Testing\DatabaseTransactions;
 
 use App\Driver;
 use App\Track;
 use App\Type;
 
-class HotelTest extends TestCase
+class DriverTest extends TestCase
 {
     use DatabaseMigrations;
 
@@ -35,13 +34,13 @@ class HotelTest extends TestCase
 
     public function test404()
     {
-        $response = $this->json("GET", '/api/drivers', []);
+        $response = $this->json("GET", '/api/drivers');
         $response->assertResponseStatus(404);
     }
 
     public function testListEmpty()
     {
-        $response = $this->json("GET", '/api/v1/drivers', []);
+        $response = $this->json("GET", '/api/v1/drivers');
         $response->assertResponseStatus(200);
         $content = json_decode($this->response->getContent());
         $content = isset($content->data) ? $content->data : [];
@@ -88,19 +87,19 @@ class HotelTest extends TestCase
         $this->assertCount(3, $content->data);
     }
 
-    public function testQtdHasVehicleIsExact()
+    public function testHasVehicleQtdIsExact()
     {
         factory(Driver::class)->create(["has_vehicles" => 0]);
         factory(Driver::class)->create(["has_vehicles" => 0]);
         factory(Driver::class)->create(["has_vehicles" => 0]);
-        $response = $this->json("GET", '/api/v1/drivers/qtdvehicles');
+        $response = $this->json("GET", '/api/v1/drivers/hasvehiclesqtd');
         $response->assertResponseStatus(200);
         $content = json_decode($this->response->getContent());
         $this->assertEquals(0, $content->data);
 
         factory(Driver::class)->create();
         factory(Driver::class)->create();
-        $response = $this->json("GET", '/api/v1/drivers/qtdvehicles');
+        $response = $this->json("GET", '/api/v1/drivers/hasvehiclesqtd');
         $response->assertResponseStatus(200);
         $content = json_decode($this->response->getContent());
         $this->assertEquals(2, $content->data);

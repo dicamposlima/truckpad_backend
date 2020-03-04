@@ -25,9 +25,15 @@ $router->group(['prefix' => 'api/v1'], function () use ($router) {
         'as' => 'drivers', 'uses' => 'DriverController@index'
     ]);
 
-    $router->get('/drivers/qtdvehicles', 'DriverController@qtdVehicles');
+    $router->get('/drivers/hasvehiclesqtd', 'DriverController@hasVehiclesQtd');
 
     $router->post('/drivers', 'DriverController@store');
 
     $router->put('/drivers/{id}', 'DriverController@update');
+
+    $router->get('/tracks', 'TrackController@index'); # List with filter day, week, month
+
+    $router->post('/tracks', 'TrackController@store');
+
+    $router->get('/tracks/tracking', 'TrackController@tracking');
 });
