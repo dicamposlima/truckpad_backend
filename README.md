@@ -1,4 +1,4 @@
-# Hotel Api Documentation
+# TruckPad Api Documentation
 
 
 ## Instale a última versão do PHP e do MySql e siga os passos abaixo
@@ -59,7 +59,7 @@ Pelo terminal execute o comando abaixo se quiser vê-lo rodando no navegador.
 php -S localhost:8000 -t public
 ```
 
-5.1 Acesse a url [http://localhost:8000] para ver o projeto ou você pode apenas fazer as chamadas para os endpoints, leia a documentação da api caso precise.
+5.1 Acesse a url [http://localhost:8000] para ver o projeto ou você pode apenas fazer as chamadas para os endpoints, leia a documentação(swagger) da api caso precise.
 
 ### Passo 6
 Para executar os testes execute o comando abaixo direto no terminal.
