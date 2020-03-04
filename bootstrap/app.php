@@ -71,7 +71,6 @@ $app->configure('app');
 */
 
 $app->middleware([
-    \App\Http\Middleware\CheckClientToken::class
 ]);
 
 // $app->routeMiddleware([

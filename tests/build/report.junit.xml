@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Application Test Suite" tests="6" assertions="10" errors="0" warnings="0" failures="0" skipped="0" time="4.190094">
+    <testsuite name="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" tests="6" assertions="10" errors="0" warnings="0" failures="0" skipped="0" time="4.190094">
+      <testcase name="testRawEndpointRedirection" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="24" assertions="1" time="0.822456"/>
+      <testcase name="testCanAccessDriversList" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="30" assertions="1" time="0.607505"/>
+      <testcase name="test404" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="36" assertions="1" time="0.602193"/>
+      <testcase name="testDriversListEmpty" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="42" assertions="3" time="0.768157"/>
+      <testcase name="testDriversListNotEmpty" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="59" assertions="2" time="0.706329"/>
+      <testcase name="testDriversListHasExactNumber" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="73" assertions="2" time="0.683454"/>
+    </testsuite>
+  </testsuite>
+</testsuites>

@@ -48,7 +48,8 @@ class Handler extends ExceptionHandler
         return response()->json([
             "status" =>  "failure",
             "error" => "Not found error.",
-            "detail" => "Sorry, the page you are looking for could not be found."
+            "detail" => "Sorry, the page you are looking for could not be found.",
+            "exception" => $exception->getMessage()
         ], 404);
     }
 }

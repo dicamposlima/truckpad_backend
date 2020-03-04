@@ -12,5 +12,16 @@
 */
 
 $router->get('/', function () use ($router) {
-    echo "ok";
+    return redirect()->route('drivers');
+});
+
+$router->group(['prefix' => 'api/v1'], function () use ($router) {
+
+    $router->get('/', function () use ($router) {
+        return redirect()->route('drivers');
+    });
+
+    $router->get('/drivers', [
+        'as' => 'drivers', 'uses' => 'DriverController@index'
+    ]);
 });

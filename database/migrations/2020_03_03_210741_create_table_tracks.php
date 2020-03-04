@@ -15,14 +15,13 @@ class CreateTableTracks extends Migration
     {
         Schema::create('tracks', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', 100)->nullable(false);
-            $table->smallInteger('latitude')->nullable(false);
-            $table->smallInteger('longitude')->nullable(false);
+            $table->string('latitude', 180)->nullable(false);
+            $table->string('longitude', 180)->nullable(false);
             $table->unsignedTinyInteger('on_way')->nullable(false)->default(1)->comment('1= Yes, 0= No');
             $table->unsignedTinyInteger('has_truckload')->nullable(false)->comment('1= Yes, 0= No');
-            $table->unsignedBigInteger('drivers_id')->nullable()->comment('Definition in drivers table');
+            $table->unsignedBigInteger('driver_id')->nullable()->comment('Definition in drivers table');
             $table->unsignedBigInteger('type_id')->nullable()->comment('Definition in types table');
-            $table->foreign('drivers_id')->references('id')->on('drivers')->onDelete('set null');
+            $table->foreign('driver_id')->references('id')->on('drivers')->onDelete('set null');
             $table->foreign('type_id')->references('id')->on('types')->onDelete('set null');
             $table->timestamps();
         });
