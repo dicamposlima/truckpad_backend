@@ -27,7 +27,7 @@ class HotelTest extends TestCase
         $response->assertResponseStatus(302);
     }
 
-    public function testCanAccessDriversList()
+    public function testCanAccessList()
     {
         $response = $this->json("GET", '/api/v1/drivers');
         $response->assertResponseStatus(200);
@@ -39,7 +39,7 @@ class HotelTest extends TestCase
         $response->assertResponseStatus(404);
     }
 
-    public function testDriversListEmpty()
+    public function testListEmpty()
     {
         $response = $this->json("GET", '/api/v1/drivers', []);
         $response->assertResponseStatus(200);
@@ -56,7 +56,7 @@ class HotelTest extends TestCase
         $this->assertCount(0, $content->data);
     }
 
-    public function testDriversListNotEmpty()
+    public function testListNotEmpty()
     {
         $driver = factory(Driver::class)->create();
         factory(Track::class)->create([
@@ -68,9 +68,7 @@ class HotelTest extends TestCase
         $this->assertCount(1, $content->data);
     }
 
-
-
-    public function testDriversListHasExactNumber()
+    public function testListHasExactNumber()
     {
         $joao = factory(Driver::class)->create();
         factory(Track::class)->create([
@@ -88,5 +86,37 @@ class HotelTest extends TestCase
         $response->assertResponseStatus(200);
         $content = json_decode($this->response->getContent());
         $this->assertCount(3, $content->data);
+    }
+
+    public function testQtdHasVehicleIsExact()
+    {
+        factory(Driver::class)->create(["has_vehicles" => 0]);
+        factory(Driver::class)->create(["has_vehicles" => 0]);
+        factory(Driver::class)->create(["has_vehicles" => 0]);
+        $response = $this->json("GET", '/api/v1/drivers/qtdvehicles');
+        $response->assertResponseStatus(200);
+        $content = json_decode($this->response->getContent());
+        $this->assertEquals(0, $content->data);
+
+        factory(Driver::class)->create();
+        factory(Driver::class)->create();
+        $response = $this->json("GET", '/api/v1/drivers/qtdvehicles');
+        $response->assertResponseStatus(200);
+        $content = json_decode($this->response->getContent());
+        $this->assertEquals(2, $content->data);
+    }
+
+    public function testCanStoreData()
+    {
+        $a  =$this->post('/api/v1/drivers', [
+            "payload" => [
+                "name" => "Antonio Carlos",
+                "age" => 48,
+                "gender" => "M",
+                "has_vehicles" => 1,
+                "cnh_type" => "D"
+            ]
+        ]);
+        $this->assertResponseStatus(201);
     }
 }

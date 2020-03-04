@@ -1,12 +1,12 @@
 
 
 Code Coverage Report:    
-  2020-03-04 16:33:44    
+  2020-03-04 17:35:01    
                          
  Summary:                
   Classes: 75.00% (3/4)  
-  Methods: 80.00% (4/5)  
-  Lines:   75.00% (21/28)
+  Methods: 44.44% (4/9)  
+  Lines:   60.49% (49/81)
 
 \App::App\Driver
   Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  1/  1)
@@ -15,4 +15,4 @@ Code Coverage Report:
 \App\Exceptions::App\Exceptions\Handler
   Methods: 100.00% ( 2/ 2)   Lines: 100.00% (  8/  8)
 \App\Http\Controllers::App\Http\Controllers\DriverController
-  Methods:   0.00% ( 0/ 1)   Lines:  61.11% ( 11/ 18)
+  Methods:   0.00% ( 0/ 5)   Lines:  54.93% ( 39/ 71)
