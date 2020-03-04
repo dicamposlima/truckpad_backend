@@ -20,10 +20,10 @@ class CreateTableTracks extends Migration
             $table->smallInteger('longitude')->nullable(false);
             $table->unsignedTinyInteger('on_way')->nullable(false)->default(1)->comment('1= Yes, 0= No');
             $table->unsignedTinyInteger('has_truckload')->nullable(false)->comment('1= Yes, 0= No');
-            $table->unsignedBigInteger('truck_drivers_id')->nullable()->comment('Definition in truck_drivers table');
-            $table->unsignedBigInteger('truck_type_id')->nullable()->comment('Definition in truck_types table');
-            $table->foreign('truck_drivers_id')->references('id')->on('truck_drivers')->onDelete('set null');
-            $table->foreign('truck_type_id')->references('id')->on('truck_types')->onDelete('set null');
+            $table->unsignedBigInteger('drivers_id')->nullable()->comment('Definition in drivers table');
+            $table->unsignedBigInteger('type_id')->nullable()->comment('Definition in types table');
+            $table->foreign('drivers_id')->references('id')->on('drivers')->onDelete('set null');
+            $table->foreign('type_id')->references('id')->on('types')->onDelete('set null');
             $table->timestamps();
         });
     }

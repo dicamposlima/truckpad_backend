@@ -258,3 +258,27 @@ Stack trace:
 #29 C:\\Users\\Uns\\Desktop\\Testes\\TruckPad\\backend\\artisan(35): Laravel\\Lumen\\Console\\Kernel->handle()
 #30 {main}
 "} 
+[2020-03-04 14:00:18] local.ERROR: Symfony\Component\Console\Exception\CommandNotFoundException: Command "make" is not defined.
+
+Did you mean one of these?
+    make:migration
+    make:seeder in C:\Users\Uns\Desktop\Testes\TruckPad\backend\vendor\symfony\console\Application.php:670
+Stack trace:
+#0 C:\Users\Uns\Desktop\Testes\TruckPad\backend\vendor\symfony\console\Application.php(236): Symfony\Component\Console\Application->find()
+#1 C:\Users\Uns\Desktop\Testes\TruckPad\backend\vendor\symfony\console\Application.php(148): Symfony\Component\Console\Application->doRun()
+#2 C:\Users\Uns\Desktop\Testes\TruckPad\backend\vendor\illuminate\console\Application.php(93): Symfony\Component\Console\Application->run()
+#3 C:\Users\Uns\Desktop\Testes\TruckPad\backend\vendor\laravel\lumen-framework\src\Console\Kernel.php(115): Illuminate\Console\Application->run()
+#4 C:\Users\Uns\Desktop\Testes\TruckPad\backend\artisan(35): Laravel\Lumen\Console\Kernel->handle()
+#5 {main} {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"make\" is not defined.
+
+Did you mean one of these?
+    make:migration
+    make:seeder at C:\\Users\\Uns\\Desktop\\Testes\\TruckPad\\backend\\vendor\\symfony\\console\\Application.php:670)
+[stacktrace]
+#0 C:\\Users\\Uns\\Desktop\\Testes\\TruckPad\\backend\\vendor\\symfony\\console\\Application.php(236): Symfony\\Component\\Console\\Application->find()
+#1 C:\\Users\\Uns\\Desktop\\Testes\\TruckPad\\backend\\vendor\\symfony\\console\\Application.php(148): Symfony\\Component\\Console\\Application->doRun()
+#2 C:\\Users\\Uns\\Desktop\\Testes\\TruckPad\\backend\\vendor\\illuminate\\console\\Application.php(93): Symfony\\Component\\Console\\Application->run()
+#3 C:\\Users\\Uns\\Desktop\\Testes\\TruckPad\\backend\\vendor\\laravel\\lumen-framework\\src\\Console\\Kernel.php(115): Illuminate\\Console\\Application->run()
+#4 C:\\Users\\Uns\\Desktop\\Testes\\TruckPad\\backend\\artisan(35): Laravel\\Lumen\\Console\\Kernel->handle()
+#5 {main}
+"} 

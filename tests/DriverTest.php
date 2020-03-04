@@ -14,5 +14,3 @@ class HotelTest extends TestCase
         parent::setUp();
     }
 }
-php artisan make:model Driver -cr
-

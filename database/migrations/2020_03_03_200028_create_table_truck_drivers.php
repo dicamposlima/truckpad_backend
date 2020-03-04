@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableTruckDrivers extends Migration
+class CreateTableDrivers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTableTruckDrivers extends Migration
      */
     public function up()
     {
-        Schema::create('truck_drivers', function (Blueprint $table) {
+        Schema::create('drivers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', 100)->nullable(false);
             $table->unsignedTinyInteger('age')->nullable(false)->comment('>= 18 and <= 120');
@@ -31,7 +31,7 @@ class CreateTableTruckDrivers extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('truck_drivers');
+        Schema::dropIfExists('drivers');
 
     }
 }
