@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Application Test Suite" tests="8" assertions="15" errors="0" warnings="0" failures="0" skipped="0" time="5.754545">
-    <testsuite name="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" tests="8" assertions="15" errors="0" warnings="0" failures="0" skipped="0" time="5.754545">
-      <testcase name="testRawEndpointRedirection" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="24" assertions="1" time="0.894628"/>
-      <testcase name="testCanAccessList" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="30" assertions="1" time="0.609710"/>
-      <testcase name="test404" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="36" assertions="1" time="0.610003"/>
-      <testcase name="testListEmpty" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="42" assertions="3" time="0.658206"/>
-      <testcase name="testListNotEmpty" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="59" assertions="2" time="0.653126"/>
-      <testcase name="testListHasExactNumber" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="71" assertions="2" time="0.748671"/>
-      <testcase name="testQtdHasVehicleIsExact" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="91" assertions="4" time="0.692173"/>
-      <testcase name="testCanStoreData" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="109" assertions="1" time="0.888028"/>
+  <testsuite name="Application Test Suite" tests="11" assertions="22" errors="0" warnings="0" failures="0" skipped="0" time="8.228127">
+    <testsuite name="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" tests="11" assertions="22" errors="0" warnings="0" failures="0" skipped="0" time="8.228127">
+      <testcase name="testRawEndpointRedirection" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="24" assertions="1" time="0.900801"/>
+      <testcase name="testCanAccessList" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="30" assertions="1" time="0.730957"/>
+      <testcase name="test404" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="36" assertions="1" time="0.638339"/>
+      <testcase name="testListEmpty" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="42" assertions="3" time="0.651215"/>
+      <testcase name="testListNotEmpty" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="59" assertions="2" time="0.706492"/>
+      <testcase name="testListHasExactNumber" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="71" assertions="2" time="0.742471"/>
+      <testcase name="testQtdHasVehicleIsExact" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="91" assertions="4" time="0.726804"/>
+      <testcase name="testCanStoreData" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="109" assertions="1" time="0.716200"/>
+      <testcase name="testCanNotStoreData" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="123" assertions="3" time="0.877592"/>
+      <testcase name="testCanUpdateData" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="140" assertions="1" time="0.736863"/>
+      <testcase name="testCanNotUpdateData" class="HotelTest" classname="HotelTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="155" assertions="3" time="0.800393"/>
     </testsuite>
   </testsuite>
 </testsuites>

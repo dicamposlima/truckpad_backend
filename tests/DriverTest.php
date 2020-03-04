@@ -108,7 +108,7 @@ class HotelTest extends TestCase
 
     public function testCanStoreData()
     {
-        $a  =$this->post('/api/v1/drivers', [
+        $this->post('/api/v1/drivers', [
             "payload" => [
                 "name" => "Antonio Carlos",
                 "age" => 48,
@@ -118,5 +118,65 @@ class HotelTest extends TestCase
             ]
         ]);
         $this->assertResponseStatus(201);
+    }
+
+    public function testCanNotStoreData()
+    {
+        $this->post('/api/v1/drivers', [
+            "payload" => [
+                "name" => "Antonio Carlos",
+                "age" => 48,
+                "gender" => "Y",
+                "has_vehicles" => 1,
+                "cnh_type" => "G"
+            ]
+        ]);
+        $content = json_decode($this->response->getContent());
+        $this->assertResponseStatus(400);
+        $this->assertContains("The selected payload.cnh type is invalid.", $content->detail);
+        $this->assertContains("The selected payload.gender is invalid.", $content->detail);
+    }
+
+    public function testCanUpdateData()
+    {
+        $driver = factory(Driver::class)->create();
+        $this->put("/api/v1/drivers/{$driver->id}", [
+            "payload" => [
+                "name" => "Carlos Antonio",
+                "age" => 49,
+                "gender" => "M",
+                "has_vehicles" => 0,
+                "cnh_type" => "E"
+            ]
+        ]);
+        $this->assertResponseStatus(201);
+    }
+
+    public function testCanNotUpdateData()
+    {
+        $driver = factory(Driver::class)->create();
+        $this->put("/api/v1/drivers/{$driver->id}", [
+            "payload" => [
+                "name" => "Antonio Carlos",
+                "age" => -1,
+                "gender" => "M",
+                "has_vehicles" => 0,
+                "cnh_type" => "E"
+            ]
+        ]);
+        $content = json_decode($this->response->getContent());
+        $this->assertResponseStatus(400);
+        $this->assertContains("The payload.age must be between 18 and 120.", $content->detail);
+
+        $this->put("/api/v1/drivers/2", [
+            "payload" => [
+                "name" => "Antonio Carlos",
+                "age" => 45,
+                "gender" => "M",
+                "has_vehicles" => 0,
+                "cnh_type" => "E"
+            ]
+        ]);
+        $this->assertResponseStatus(400);
     }
 }

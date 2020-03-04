@@ -28,4 +28,6 @@ $router->group(['prefix' => 'api/v1'], function () use ($router) {
     $router->get('/drivers/qtdvehicles', 'DriverController@qtdVehicles');
 
     $router->post('/drivers', 'DriverController@store');
+
+    $router->put('/drivers/{id}', 'DriverController@update');
 });

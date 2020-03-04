@@ -112,6 +112,60 @@ class DriverController extends Controller
         }
     }
 
+
+
+    /**
+     * Update the Driver.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        if($validator = $this->validateData($request)) {
+            return response()->json([
+                "status" => 400,
+                "type" =>  "failure",
+                "title" => "Validation errors",
+                "detail" => $validator->errors()->all()
+            ], 400);
+        }
+
+        try {
+            $driver = Driver::where('id', $id)->first();
+            if(!$driver) {
+                return response()->json([
+                    "status" => 400,
+                    "type" =>  "failure",
+                    "title" => "Saving data",
+                    "detail" => "Erro saving data, please try again."
+                ], 400);
+            }
+            $driverData = $this->setDataRequest($request);
+            if($driver->update($driverData)){
+                return response()->json([
+                    "status" => 201,
+                    'data' => "Saved successfully",
+                ], 201);
+            } else {
+                return response()->json([
+                    "status" => 400,
+                    "type" =>  "failure",
+                    "title" => "Saving data",
+                    "detail" => "Erro saving data, please try again."
+                ], 400);
+            }
+        } catch (Exception $e) {
+            return response()->json([
+                "status" => 500,
+                "type" =>  "failure",
+                "title" => "Internal Server Error",
+                "detail" => $e->getMessage()
+            ], 500);
+        }
+    }
+
     /**
      * Validate de data according to the rules below.
      * @param  \Illuminate\Http\Request  $request
