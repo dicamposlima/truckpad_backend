@@ -1,0 +1,224 @@
+swagger: "2.0"
+info:
+  description: "TruckPad Api Documentation"
+  version: "1.0.0"
+  title: "TruckPad Api"
+  contact:
+    email: "dicamposlima@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:8000"
+basePath: "/api"
+tags:
+- name: "drivers"
+  description: "Lista, insere e atualiza motoristas"
+- name: "tracks"
+  description: "Lista e insere Tracks"
+schemes:
+- "http"
+paths:
+  /drivers:
+    get:
+      tags:
+      - "drivers"
+      summary: "Lsta de motoristas sem carga"
+      description: "Consulta todos os motoristas que não tem carga"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "success"
+        500:
+          description: Internal Server Error
+    post:
+      tags:
+      - "drivers"
+      summary: "Adiciona um motorista"
+      description: "Cadastra o motorista que chega no terminal"
+      parameters:
+        - in: body
+          name: driver
+          description: Os dados do motorista para ser inserido
+          required: true
+          schema:
+            $ref: '#/definitions/Driver'
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        201:
+          description: "success"
+        400:
+          description: "Validation errors|failure"
+        500:
+          description: "Internal Server Error"
+  /drivers/{driverId}:
+    put:
+      tags:
+      - "drivers"
+      summary: "Edita os dados do motorista"
+      description: ""
+      parameters:
+        - in: "path"
+          name: "driverId"
+          description: "ID do motorista que terá os dados editados"
+          required: true
+          type: "integer"
+          format: "int64"
+        - in: body
+          name: driver
+          description: Os dados do motorista que serão editados
+          required: true
+          schema:
+            $ref: '#/definitions/Driver'
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "failure"
+        400:
+          description: "validation errors|failure"
+  /drivers/hasvehiclesqtd:
+    get:
+      tags:
+      - "drivers"
+      summary: "Retorna a quantidade de motoristas que tem veículos próprio"
+      description: "Um inteiro representando a quantidade"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "success"
+        500:
+          description: "Internal Server Error"
+  /tracks:
+    get:
+      tags:
+      - "tracks"
+      summary: "Lista de tracks"
+      description: "Lista os tracks agrupando por dia/semana/mes"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "success"
+        500:
+          description: Internal Server Error
+    post:
+      tags:
+      - "tracks"
+      summary: "Adiciona um tracking"
+      description: "Adiciona um tracking para o motorista"
+      parameters:
+        - in: body
+          name: tracking
+          description: Os dados do tracking para ser inserido
+          required: true
+          schema:
+            $ref: '#/definitions/Tracks'
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        201:
+          description: "success"
+        400:
+          description: "Validation errors|failure"
+        500:
+          description: "Internal Server Error"
+  /tracks/tracking:
+    get:
+      tags:
+      - "tracks"
+      summary: "Lista de trackings ativo por motoristas"
+      description: "Lista os tracks agrupando por motoristas"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "success"
+        500:
+          description: Internal Server Error
+definitions:
+  Driver:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+        description: "O nome do motorista, não deve ter mais do que 100 caracteres"
+      age:
+        type: "integer"
+        format: "int64"
+        minimum: 18
+        maximum: 120
+        description: "A idade do motorista, deve estar entre 18 e 120"
+      gender:
+        type: "string"
+        description: "O gênero do motorista"
+        enum:
+        - "M"
+        - "F"
+        - "ND"
+      cnh_type:
+        type: "string"
+        description: "o tipo de CNH que o motorista possui"
+        enum:
+        - "A"
+        - "B"
+        - "C"
+        - "D"
+        - "E"
+      has_vehicles:
+        type: "integer"
+        minimum: 0
+        maximum: 1
+        description: "Se o motorista possui veículo ou não, 1=sim, 0=não"
+    required:
+      - name
+      - age
+      - gender
+      - has_vehicles
+      - cnh_type
+  Tracks:
+    type: "object"
+    properties:
+      latitude:
+        type: "integer"
+        minimum: 0
+        maximum: 180
+        description: "Representação geográfica da latitude, máximo de 180 caracteres"
+      longitude:
+        type: "integer"
+        minimum: 0
+        maximum: 180
+        description: "Representação geográfica da longitude, máximo de 180 caracteres"
+      on_way:
+        type: "integer"
+        minimum: 0
+        maximum: 1
+        description: "Se o tracking está ativo ou não, 1=sim, 0=não"
+      has_truckload:
+        type: "integer"
+        minimum: 0
+        maximum: 1
+        description: "Se o motorista está carregado ou não, 1=sim, 0=não"
+      driver_id:
+        type: "integer"
+        description: "Um inteiro sem sinal representando o ID do motorista"
+      type_id:
+        type: "integer"
+        description: "Um inteiro sem sinal representando o ID do tipo de caminhão"
+    required:
+      - latitude
+      - longitude
+      - on_way
+      - has_truckload
+      - driver_id
+      - type_id

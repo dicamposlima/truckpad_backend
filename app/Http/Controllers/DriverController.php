@@ -112,8 +112,6 @@ class DriverController extends Controller
         }
     }
 
-
-
     /**
      * Update the Driver.
      *
