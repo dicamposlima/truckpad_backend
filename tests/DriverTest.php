@@ -92,14 +92,14 @@ class DriverTest extends TestCase
         factory(Driver::class)->create(["has_vehicles" => 0]);
         factory(Driver::class)->create(["has_vehicles" => 0]);
         factory(Driver::class)->create(["has_vehicles" => 0]);
-        $response = $this->json("GET", '/api/v1/drivers/hasvehiclesqtd');
+        $response = $this->json("GET", '/api/v1/drivers/hasVehiclesQtd');
         $response->assertResponseStatus(200);
         $content = json_decode($this->response->getContent());
         $this->assertEquals(0, $content->data);
 
         factory(Driver::class)->create();
         factory(Driver::class)->create();
-        $response = $this->json("GET", '/api/v1/drivers/hasvehiclesqtd');
+        $response = $this->json("GET", '/api/v1/drivers/hasVehiclesQtd');
         $response->assertResponseStatus(200);
         $content = json_decode($this->response->getContent());
         $this->assertEquals(2, $content->data);

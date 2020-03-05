@@ -82,7 +82,7 @@ paths:
           description: "failure"
         400:
           description: "validation errors|failure"
-  /drivers/hasvehiclesqtd:
+  /drivers/hasVehiclesQtd:
     get:
       tags:
       - "drivers"
