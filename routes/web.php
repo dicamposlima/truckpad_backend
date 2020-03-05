@@ -31,9 +31,11 @@ $router->group(['prefix' => 'api/v1'], function () use ($router) {
 
     $router->put('/drivers/{id}', 'DriverController@update');
 
-    $router->get('/tracks', 'TrackController@index'); # List with filter day, week, month
+    $router->get('/tracks', 'TrackController@index');
 
     $router->post('/tracks', 'TrackController@store');
 
     $router->get('/tracks/tracking', 'TrackController@tracking');
+
+    $router->get('/tracks/trackingByTypes', 'TrackController@trackingByTypes');
 });

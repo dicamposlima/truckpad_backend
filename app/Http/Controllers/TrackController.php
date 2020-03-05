@@ -11,8 +11,8 @@ use Illuminate\Support\Carbon;
 
 use App\Track;
 use App\Driver;
+use App\Type;
 use Illuminate\Http\Request;
-use Illuminate\Queue\InvalidPayloadException;
 
 class TrackController extends Controller
 {
@@ -73,6 +73,33 @@ class TrackController extends Controller
     }
 
     /**
+     * Display a listing of Tracking grouped by types
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function trackingByTypes()
+    {
+        try {
+
+           $tracks = Type::with("tracks")->get();
+
+            return response()->json([
+                "status" => 200,
+                "type" => "success",
+                "data" => count($tracks) ? $tracks : []
+            ], 200);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                "status" => 500,
+                "type" =>  "failure",
+                "title" => "Internal Server Error",
+                "detail" => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    /**
      * Store a newly created Driver.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -94,7 +121,12 @@ class TrackController extends Controller
             $track = $this->setDataRequest($request, $track);
             $driver = Driver::find($request->payload["driver_id"]);
             if (!$driver) {
-                throw new InvalidPayloadException("Driver not found.");
+                return response()->json([
+                    "status" => 400,
+                    "type" =>  "failure",
+                    "title" => "Saving data",
+                    "detail" => "Driver not found."
+                ], 400);
             }
             $update = $driver->tracks()->update(["on_way" => 0]);
             if($track->save()) {
@@ -110,13 +142,6 @@ class TrackController extends Controller
                     "detail" => "Error saving data, please try again."
                 ], 400);
             }
-        } catch (InvalidPayloadException $e) {
-            return response()->json([
-                "status" => 400,
-                "type" =>  "failure",
-                "title" => "Saving data",
-                "detail" => $e->getMessage()
-            ], 400);
         } catch (Exception $e) {
             return response()->json([
                 "status" => 500,
@@ -157,13 +182,10 @@ class TrackController extends Controller
      * Set Data from the request.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \App\Track $track|null
+     * @return \App\Track $track
      */
-    private function setDataRequest(Request $request, Track $track = null)
+    private function setDataRequest(Request $request, Track $track)
     {
-        if(!$track)
-            $track = [];
-
         $track["latitude"] = $request->payload["latitude"];
         $track["longitude"] = $request->payload["longitude"];
         $track["on_way"] = $request->payload["on_way"];

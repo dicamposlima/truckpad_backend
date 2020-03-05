@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Type;
+
 class Track extends Model
 {
     protected $fillable = [

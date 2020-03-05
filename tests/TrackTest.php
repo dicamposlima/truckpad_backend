@@ -69,6 +69,59 @@ class TrackTest extends TestCase
         $this->assertCount(5, $content->data);
     }
 
+    public function testCountExactTracksGroupedByTypes()
+    {
+        $joao = factory(Driver::class)->create();
+        factory(Track::class)->create([
+            'driver_id' => $joao->id,
+            'created_at' => "2020-01-01 13:51:18",
+            'type_id' => 1
+        ]);
+        $maria = factory(Driver::class)->create();
+        factory(Track::class)->create([
+            'driver_id' => $maria->id,
+            'created_at' => "2020-01-01 13:51:18",
+            'type_id' => 1
+        ]);
+        $reginaldo = factory(Driver::class)->create();
+        factory(Track::class)->create([
+            'driver_id' => $reginaldo->id,
+            'created_at' => "2020-01-05 13:51:18",
+            'type_id' => 2
+        ]);
+        $felipe = factory(Driver::class)->create();
+        factory(Track::class)->create([
+            'driver_id' => $felipe->id,
+            'created_at' => "2020-02-01 13:51:18",
+            'type_id' => 3
+        ]);
+        $anderson = factory(Driver::class)->create();
+        factory(Track::class)->create([
+            'driver_id' => $anderson->id,
+            'created_at' => "2020-03-01 13:51:18",
+            'type_id' => 3
+        ]);
+        $fred = factory(Driver::class)->create();
+        factory(Track::class)->create([
+            'driver_id' => $fred->id,
+            'created_at' => "2021-03-01 13:51:18",
+            'type_id' => 3
+        ]);
+        $response = $this->json("GET", '/api/v1/tracks/trackingByTypes');
+        $response->assertResponseStatus(200);
+        $content = json_decode($this->response->getContent());
+        $type1 = $content->data[0]->tracks;
+        $this->assertCount(2, $type1);
+        $type2 = $content->data[1]->tracks;
+        $this->assertCount(1, $type2);
+        $type3 = $content->data[2]->tracks;
+        $this->assertCount(3, $type3);
+        $type4 = $content->data[3]->tracks;
+        $this->assertCount(0, $type4);
+        $type5 = $content->data[4]->tracks;
+        $this->assertCount(0, $type5);
+    }
+
     public function testCanAccessTracking()
     {
         $response = $this->json("GET", '/api/v1/tracks/tracking');

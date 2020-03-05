@@ -1,7 +1,7 @@
 # TruckPad Api Documentation
 
 
-## Instale a última versão do PHP e do MySql e siga os passos abaixo
+## Instale a última versão do PHP[https://www.php.net/downloads.php], do MySql[https://dev.mysql.com/downloads/] e do Composer[https://getcomposer.org/download/] e siga os passos abaixo
 
 ### Passo 1
 Crie os esquemas de banco de dados executando as queries abaixo:
@@ -44,11 +44,17 @@ e também no banco de dados de teste no arquivo **_phpunit.xml_** na raiz do pro
 
 ### Passo 4
 Pelo terminal acesse a página no projeto e execute o comando abaixo:
+
+4.1 Para installar as dependências:
+```bash
+composer update
+```
+4.2 Para criar as tabelas no banco de dados
 ```bash
 php artisan migrate
 ```
 
-4.1 Para fazer rollback das migrações execute o comando abaixo:
+4.3 Para fazer rollback das migrações execute o comando abaixo:
 ```bash
 php artisan migrate:rollback
 ```

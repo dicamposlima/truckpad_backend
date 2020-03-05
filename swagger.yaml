@@ -146,6 +146,19 @@ paths:
           description: "success"
         500:
           description: Internal Server Error
+  /tracks/trackingByTypes:
+    get:
+      tags:
+      - "tracks"
+      summary: "Lista de trackings agrupados por origem e destino"
+      description: "Lista os tracks agrupando por latitude e longitude"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "success"
+        500:
+          description: Internal Server Error
 definitions:
   Driver:
     type: "object"
