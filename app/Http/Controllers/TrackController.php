@@ -7,13 +7,41 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Carbon;
 
 use App\Track;
 use App\Driver;
 use Illuminate\Http\Request;
+use Illuminate\Queue\InvalidPayloadException;
 
 class TrackController extends Controller
 {
+
+    /**
+     * Display a listing of Tracking grouped by day, week, month
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        try {
+            $tracks = Track::where("has_truckload", 1)->get("created_at");
+
+            return response()->json([
+                "status" => 200,
+                "type" => "success",
+                "data" => count($tracks) ? $tracks : []
+            ], 200);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                "status" => 500,
+                "type" =>  "failure",
+                "title" => "Internal Server Error",
+                "detail" => $e->getMessage()
+            ], 500);
+        }
+    }
 
     /**
      * Display a listing of Tracking
@@ -64,7 +92,11 @@ class TrackController extends Controller
        try {
             $track = new Track();
             $track = $this->setDataRequest($request, $track);
-
+            $driver = Driver::find($request->payload["driver_id"]);
+            if (!$driver) {
+                throw new InvalidPayloadException("Driver not found.");
+            }
+            $update = $driver->tracks()->update(["on_way" => 0]);
             if($track->save()) {
                 return response()->json([
                     "status" => 201,
@@ -75,9 +107,16 @@ class TrackController extends Controller
                     "status" => 400,
                     "type" =>  "failure",
                     "title" => "Saving data",
-                    "detail" => "Erro saving data, please try again."
+                    "detail" => "Error saving data, please try again."
                 ], 400);
             }
+        } catch (InvalidPayloadException $e) {
+            return response()->json([
+                "status" => 400,
+                "type" =>  "failure",
+                "title" => "Saving data",
+                "detail" => $e->getMessage()
+            ], 400);
         } catch (Exception $e) {
             return response()->json([
                 "status" => 500,

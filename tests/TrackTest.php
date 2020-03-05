@@ -20,6 +20,55 @@ class TrackTest extends TestCase
         factory(Type::class)->create(['name' => "Carreta Eixo Extendido"]);
     }
 
+    public function testCanAccessTracks()
+    {
+        $response = $this->json("GET", '/api/v1/tracks');
+        $response->assertResponseStatus(200);
+    }
+
+    public function testCountExactTracks()
+    {
+        $joao = factory(Driver::class)->create();
+        factory(Track::class)->create([
+            'driver_id' => $joao->id,
+            'created_at' => "2020-01-01 13:51:18",
+            'has_truckload' => 1
+        ]);
+        $maria = factory(Driver::class)->create();
+        factory(Track::class)->create([
+            'driver_id' => $maria->id,
+            'created_at' => "2020-01-01 13:51:18",
+            'has_truckload' => 1
+        ]);
+        $reginaldo = factory(Driver::class)->create();
+        factory(Track::class)->create([
+            'driver_id' => $reginaldo->id,
+            'created_at' => "2020-01-05 13:51:18",
+            'has_truckload' => 1
+        ]);
+        $felipe = factory(Driver::class)->create();
+        factory(Track::class)->create([
+            'driver_id' => $felipe->id,
+            'created_at' => "2020-02-01 13:51:18",
+            'has_truckload' => 1
+        ]);
+        $anderson = factory(Driver::class)->create();
+        factory(Track::class)->create([
+            'driver_id' => $anderson->id,
+            'created_at' => "2020-03-01 13:51:18"
+        ]);
+        $fred = factory(Driver::class)->create();
+        factory(Track::class)->create([
+            'driver_id' => $fred->id,
+            'created_at' => "2021-03-01 13:51:18",
+            'has_truckload' => 1
+        ]);
+        $response = $this->json("GET", '/api/v1/tracks');
+        $response->assertResponseStatus(200);
+        $content = json_decode($this->response->getContent());
+        $this->assertCount(5, $content->data);
+    }
+
     public function testCanAccessTracking()
     {
         $response = $this->json("GET", '/api/v1/tracks/tracking');
