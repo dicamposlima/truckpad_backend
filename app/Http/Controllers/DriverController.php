@@ -15,11 +15,37 @@ use Illuminate\Http\Request;
 class DriverController extends Controller
 {
     /**
-     * Display a listing of Drivers which has no truckload.
+     * Display a listing of Drivers
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
+    {
+        try {
+            $drivers = Driver::all();
+
+            return response()->json([
+                "status" => 200,
+                "type" => "success",
+                "data" => count($drivers) ? $drivers : []
+            ], 200);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                "status" => 500,
+                "type" =>  "failure",
+                "title" => "Internal Server Error",
+                "detail" => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    /**
+     * Display a listing of Drivers which has no truckload.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function hasTruckloadList()
     {
         try {
             $drivers = Driver::whereHas('tracks', function (Builder $query) {

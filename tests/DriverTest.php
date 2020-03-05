@@ -28,7 +28,7 @@ class DriverTest extends TestCase
 
     public function testCanAccessList()
     {
-        $response = $this->json("GET", '/api/v1/drivers');
+        $response = $this->json("GET", '/api/v1/drivers/hasTruckloadList');
         $response->assertResponseStatus(200);
     }
 
@@ -40,7 +40,7 @@ class DriverTest extends TestCase
 
     public function testListEmpty()
     {
-        $response = $this->json("GET", '/api/v1/drivers');
+        $response = $this->json("GET", '/api/v1/drivers/hasTruckloadList');
         $response->assertResponseStatus(200);
         $content = json_decode($this->response->getContent());
         $content = isset($content->data) ? $content->data : [];
@@ -61,7 +61,7 @@ class DriverTest extends TestCase
         factory(Track::class)->create([
             'driver_id' => $driver->id
         ]);
-        $response = $this->json("GET", '/api/v1/drivers');
+        $response = $this->json("GET", '/api/v1/drivers/hasTruckloadList');
         $response->assertResponseStatus(200);
         $content = json_decode($this->response->getContent());
         $this->assertCount(1, $content->data);
@@ -81,7 +81,7 @@ class DriverTest extends TestCase
         factory(Track::class)->create([
             'driver_id' => $maria->id
         ]);
-        $response = $this->json("GET", '/api/v1/drivers');
+        $response = $this->json("GET", '/api/v1/drivers/hasTruckloadList');
         $response->assertResponseStatus(200);
         $content = json_decode($this->response->getContent());
         $this->assertCount(3, $content->data);

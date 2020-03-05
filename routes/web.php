@@ -25,6 +25,8 @@ $router->group(['prefix' => 'api/v1'], function () use ($router) {
         'as' => 'drivers', 'uses' => 'DriverController@index'
     ]);
 
+    $router->get('/drivers/hasTruckloadList', 'DriverController@hasTruckloadList');
+
     $router->get('/drivers/hasVehiclesQtd', 'DriverController@hasVehiclesQtd');
 
     $router->post('/drivers', 'DriverController@store');

@@ -22,8 +22,8 @@ paths:
     get:
       tags:
       - "drivers"
-      summary: "Lsta de motoristas sem carga"
-      description: "Consulta todos os motoristas que não tem carga"
+      summary: "Lsta de motoristas"
+      description: "Consulta todos os motoristas"
       produces:
       - "application/json"
       responses:
@@ -82,6 +82,21 @@ paths:
           description: "failure"
         400:
           description: "validation errors|failure"
+  /drivers/hasTruckloadList:
+    get:
+      tags:
+      - "drivers"
+      summary: "Lsta de motoristas sem carga"
+      description: "Consulta todos os motoristas que não tem carga"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "success"
+        500:
+          description: "Internal Server Error"
   /drivers/hasVehiclesQtd:
     get:
       tags:
