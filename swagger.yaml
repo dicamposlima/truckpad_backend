@@ -82,6 +82,35 @@ paths:
           description: "failure"
         400:
           description: "validation errors|failure"
+  /drivers/{driverId}/active:
+    put:
+      tags:
+      - "drivers"
+      summary: "Altera o status do motorista"
+      description: ""
+      parameters:
+        - in: "path"
+          name: "driverId"
+          description: "ID do motorista que terá os dados editados"
+          required: true
+          type: "integer"
+          format: "int64"
+        - in: body
+          name: active
+          description: Os status 0 ou 1 para ser modificado
+          schema:
+            type: integer
+            required:
+              - active
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        201:
+          description: "success"
+        400:
+          description: "failure"
   /drivers/hasTruckloadList:
     get:
       tags:
