@@ -1,12 +1,12 @@
 
 
 Code Coverage Report:      
-  2020-03-05 20:55:58      
+  2020-03-06 15:06:59      
                            
  Summary:                  
   Classes: 57.14% (4/7)    
   Methods: 47.37% (9/19)   
-  Lines:   60.95% (128/210)
+  Lines:   61.32% (130/212)
 
 \App::App\Driver
   Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  1/  1)
@@ -17,7 +17,7 @@ Code Coverage Report:
 \App\Exceptions::App\Exceptions\Handler
   Methods: 100.00% ( 2/ 2)   Lines: 100.00% (  8/  8)
 \App\Http\Controllers::App\Http\Controllers\DriverController
-  Methods:  28.57% ( 2/ 7)   Lines:  57.66% ( 64/111)
+  Methods:  28.57% ( 2/ 7)   Lines:  58.41% ( 66/113)
 \App\Http\Controllers::App\Http\Controllers\TrackController
   Methods:  33.33% ( 2/ 6)   Lines:  58.02% ( 47/ 81)
 \App\Http\Middleware::App\Http\Middleware\CorsMiddleware

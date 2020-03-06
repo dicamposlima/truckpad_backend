@@ -181,12 +181,6 @@ definitions:
       name:
         type: "string"
         description: "O nome do motorista, não deve ter mais do que 100 caracteres"
-      age:
-        type: "integer"
-        format: "int64"
-        minimum: 18
-        maximum: 120
-        description: "A idade do motorista, deve estar entre 18 e 120"
       gender:
         type: "string"
         description: "O gênero do motorista"
@@ -194,9 +188,24 @@ definitions:
         - "M"
         - "F"
         - "ND"
+      date_of_birth:
+        type: "string"
+        description: "A data de nascimento do motorista"
+      cpf:
+        type: "integer"
+        format: "int64"
+        minimum: 11
+        maximum: 11
+        description: "O CPF do motorista, deve ter 11 caracteres"
+      cnh:
+        type: "integer"
+        format: "int64"
+        minimum: 11
+        maximum: 11
+        description: "O CNH do motorista, deve ter 11 caracteres"
       cnh_type:
         type: "string"
-        description: "o tipo de CNH que o motorista possui"
+        description: "O tipo de CNH que o motorista possui"
         enum:
         - "A"
         - "B"
@@ -208,10 +217,16 @@ definitions:
         minimum: 0
         maximum: 1
         description: "Se o motorista possui veículo ou não, 1=sim, 0=não"
+      phone:
+        type: "integer"
+        format: "int64"
+        description: "o número do telefone do motorista"
     required:
       - name
-      - age
+      - date_of_birth
       - gender
+      - cpf
+      - cnh
       - has_vehicles
       - cnh_type
   Tracks:

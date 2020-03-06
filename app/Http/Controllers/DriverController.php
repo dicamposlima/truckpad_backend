@@ -202,7 +202,22 @@ class DriverController extends Controller
                 "required",
                 "min:10",
             ],
-            "payload.age" => "required|integer|between:18,120",
+            "payload.cpf" => [
+                "required",
+                "min:11",
+            ],
+            "payload.cnh" => [
+                "required",
+                "min:11",
+            ],
+            "payload.date_of_birth" => [
+                "required",
+            ],
+            "payload.phone" => [
+                "integer",
+                "max:11",
+                "min:10",
+            ],
             "payload.gender" => [
                 "required",
                 "string",
@@ -232,10 +247,13 @@ class DriverController extends Controller
             $driver = [];
 
         $driver["name"] = $request->payload["name"];
-        $driver["age"] = $request->payload["age"];
+        $driver["date_of_birth"] = $request->payload["date_of_birth"];
         $driver["gender"] = $request->payload["gender"];
         $driver["has_vehicles"] = $request->payload["has_vehicles"];
         $driver["cnh_type"] = $request->payload["cnh_type"];
+        $driver["cnh"] = $request->payload["cnh"];
+        $driver["cpf"] = $request->payload["cpf"];
+        $driver["phone"] = isset($request->payload["phone"]) ?:null;
 
         return $driver;
     }

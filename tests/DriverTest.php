@@ -110,10 +110,12 @@ class DriverTest extends TestCase
         $this->post('/api/v1/drivers', [
             "payload" => [
                 "name" => "Antonio Carlos",
-                "age" => 48,
                 "gender" => "M",
                 "has_vehicles" => 1,
-                "cnh_type" => "D"
+                "cnh_type" => "D",
+                "cnh" => 26462857289,
+                "cpf" => 16294627452,
+                "date_of_birth" => "04-12-1976"
             ]
         ]);
         $this->assertResponseStatus(201);
@@ -124,10 +126,12 @@ class DriverTest extends TestCase
         $this->post('/api/v1/drivers', [
             "payload" => [
                 "name" => "Antonio Carlos",
-                "age" => 48,
                 "gender" => "Y",
                 "has_vehicles" => 1,
-                "cnh_type" => "G"
+                "cnh_type" => "G",
+                "cnh" => 26462857289,
+                "cpf" => 16294627452,
+                "date_of_birth" => "04-12-1976"
             ]
         ]);
         $content = json_decode($this->response->getContent());
@@ -142,13 +146,16 @@ class DriverTest extends TestCase
         $this->put("/api/v1/drivers/{$driver->id}", [
             "payload" => [
                 "name" => "Carlos Antonio",
-                "age" => 49,
                 "gender" => "M",
                 "has_vehicles" => 0,
-                "cnh_type" => "E"
+                "cnh_type" => "E",
+                "cnh" => 26462857289,
+                "cpf" => 16294627452,
+                "date_of_birth" => "04-12-1976"
             ]
         ]);
         $this->assertResponseStatus(201);
+
     }
 
     public function testCanNotUpdateData()
@@ -157,23 +164,27 @@ class DriverTest extends TestCase
         $this->put("/api/v1/drivers/{$driver->id}", [
             "payload" => [
                 "name" => "Antonio Carlos",
-                "age" => -1,
                 "gender" => "M",
                 "has_vehicles" => 0,
-                "cnh_type" => "E"
+                "cnh_type" => "G",
+                "cnh" => 26462857289,
+                "cpf" => 16294627452,
+                "date_of_birth" => "04-12-1976"
             ]
         ]);
         $content = json_decode($this->response->getContent());
         $this->assertResponseStatus(400);
-        $this->assertContains("The payload.age must be between 18 and 120.", $content->detail);
+        $this->assertContains("The selected payload.cnh type is invalid.", $content->detail);
 
         $this->put("/api/v1/drivers/2", [
             "payload" => [
                 "name" => "Antonio Carlos",
-                "age" => 45,
                 "gender" => "M",
                 "has_vehicles" => 0,
-                "cnh_type" => "E"
+                "cnh_type" => "E",
+                "cnh" => 26462857289,
+                "cpf" => 16294627452,
+                "date_of_birth" => "04-12-1976"
             ]
         ]);
         $this->assertResponseStatus(400);
