@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1583421705">
-  <project timestamp="1583421705">
+<coverage generated="1583441758">
+  <project timestamp="1583441758">
     <package name="App\Console">
       <file name="C:\Users\Uns\Desktop\Testes\TruckPad\backend\app\Console\Kernel.php">
         <class name="App\Console\Kernel" namespace="App\Console">
@@ -278,6 +278,22 @@
         <metrics loc="198" ncloc="166" classes="1" methods="6" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="81" coveredstatements="47" elements="87" coveredelements="49"/>
       </file>
     </package>
-    <metrics files="8" loc="622" ncloc="493" classes="6" methods="18" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="203" coveredstatements="122" elements="221" coveredelements="131"/>
+    <package name="App\Http\Middleware">
+      <file name="C:\Users\Uns\Desktop\Testes\TruckPad\backend\app\Http\Middleware\CorsMiddleware.php">
+        <class name="App\Http\Middleware\CorsMiddleware" namespace="App\Http\Middleware">
+          <metrics complexity="3" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="6" elements="8" coveredelements="6"/>
+        </class>
+        <line num="15" type="method" name="handle" visibility="public" complexity="3" crap="3.03" count="20"/>
+        <line num="18" type="stmt" count="20"/>
+        <line num="25" type="stmt" count="20"/>
+        <line num="27" type="stmt" count="0"/>
+        <line num="30" type="stmt" count="20"/>
+        <line num="31" type="stmt" count="20"/>
+        <line num="33" type="stmt" count="20"/>
+        <line num="36" type="stmt" count="20"/>
+        <metrics loc="38" ncloc="31" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="6" elements="8" coveredelements="6"/>
+      </file>
+    </package>
+    <metrics files="9" loc="660" ncloc="524" classes="7" methods="19" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="210" coveredstatements="128" elements="229" coveredelements="137"/>
   </project>
 </coverage>

@@ -22,7 +22,7 @@ class DriverController extends Controller
     public function index()
     {
         try {
-            $drivers = Driver::all();
+            $drivers = Driver::orderBy("name")->get();
 
             return response()->json([
                 "status" => 200,
@@ -48,7 +48,7 @@ class DriverController extends Controller
     public function hasTruckloadList()
     {
         try {
-            $drivers = Driver::whereHas('tracks', function (Builder $query) {
+            $drivers = Driver::orderBy("name")->whereHas('tracks', function (Builder $query) {
                 $query->where('has_truckload', 0);
             })->get();
 

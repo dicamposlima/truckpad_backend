@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Application Test Suite" tests="20" assertions="44" errors="0" warnings="0" failures="0" skipped="0" time="16.114928">
-    <testsuite name="DriverTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" tests="11" assertions="22" errors="0" warnings="0" failures="0" skipped="0" time="8.234099">
-      <testcase name="testRawEndpointRedirection" class="DriverTest" classname="DriverTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="23" assertions="1" time="0.820487"/>
-      <testcase name="testCanAccessList" class="DriverTest" classname="DriverTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="29" assertions="1" time="0.619705"/>
-      <testcase name="test404" class="DriverTest" classname="DriverTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="35" assertions="1" time="0.619251"/>
-      <testcase name="testListEmpty" class="DriverTest" classname="DriverTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="41" assertions="3" time="0.651200"/>
-      <testcase name="testListNotEmpty" class="DriverTest" classname="DriverTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="58" assertions="2" time="1.005317"/>
-      <testcase name="testListHasExactNumber" class="DriverTest" classname="DriverTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="70" assertions="2" time="0.781864"/>
-      <testcase name="testHasVehicleQtdIsExact" class="DriverTest" classname="DriverTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="90" assertions="4" time="0.723495"/>
-      <testcase name="testCanStoreData" class="DriverTest" classname="DriverTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="108" assertions="1" time="0.711148"/>
-      <testcase name="testCanNotStoreData" class="DriverTest" classname="DriverTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="122" assertions="3" time="0.719500"/>
-      <testcase name="testCanUpdateData" class="DriverTest" classname="DriverTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="139" assertions="1" time="0.787255"/>
-      <testcase name="testCanNotUpdateData" class="DriverTest" classname="DriverTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="154" assertions="3" time="0.794877"/>
+  <testsuite name="Application Test Suite" tests="20" assertions="44" errors="0" warnings="0" failures="0" skipped="0" time="27.592412">
+    <testsuite name="DriverTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" tests="11" assertions="22" errors="0" warnings="0" failures="0" skipped="0" time="14.658980">
+      <testcase name="testRawEndpointRedirection" class="DriverTest" classname="DriverTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="23" assertions="1" time="2.732232"/>
+      <testcase name="testCanAccessList" class="DriverTest" classname="DriverTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="29" assertions="1" time="0.990783"/>
+      <testcase name="test404" class="DriverTest" classname="DriverTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="35" assertions="1" time="1.067672"/>
+      <testcase name="testListEmpty" class="DriverTest" classname="DriverTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="41" assertions="3" time="1.202342"/>
+      <testcase name="testListNotEmpty" class="DriverTest" classname="DriverTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="58" assertions="2" time="1.050573"/>
+      <testcase name="testListHasExactNumber" class="DriverTest" classname="DriverTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="70" assertions="2" time="1.224225"/>
+      <testcase name="testHasVehicleQtdIsExact" class="DriverTest" classname="DriverTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="90" assertions="4" time="1.256209"/>
+      <testcase name="testCanStoreData" class="DriverTest" classname="DriverTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="108" assertions="1" time="1.403087"/>
+      <testcase name="testCanNotStoreData" class="DriverTest" classname="DriverTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="122" assertions="3" time="1.115323"/>
+      <testcase name="testCanUpdateData" class="DriverTest" classname="DriverTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="139" assertions="1" time="1.243927"/>
+      <testcase name="testCanNotUpdateData" class="DriverTest" classname="DriverTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\DriverTest.php" line="154" assertions="3" time="1.372607"/>
     </testsuite>
-    <testsuite name="TrackTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\TrackTest.php" tests="9" assertions="22" errors="0" warnings="0" failures="0" skipped="0" time="7.880829">
-      <testcase name="testCanAccessTracks" class="TrackTest" classname="TrackTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\TrackTest.php" line="23" assertions="1" time="0.785655"/>
-      <testcase name="testCountExactTracks" class="TrackTest" classname="TrackTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\TrackTest.php" line="29" assertions="2" time="1.009242"/>
-      <testcase name="testCountExactTracksGroupedByTypes" class="TrackTest" classname="TrackTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\TrackTest.php" line="72" assertions="6" time="0.904791"/>
-      <testcase name="testCanAccessTracking" class="TrackTest" classname="TrackTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\TrackTest.php" line="125" assertions="1" time="0.720098"/>
-      <testcase name="testTrackingEmpty" class="TrackTest" classname="TrackTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\TrackTest.php" line="131" assertions="3" time="0.769531"/>
-      <testcase name="testListNotEmpty" class="TrackTest" classname="TrackTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\TrackTest.php" line="147" assertions="2" time="0.790207"/>
-      <testcase name="testListHasExactNumber" class="TrackTest" classname="TrackTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\TrackTest.php" line="160" assertions="2" time="0.881452"/>
-      <testcase name="testCanStoreData" class="TrackTest" classname="TrackTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\TrackTest.php" line="178" assertions="1" time="1.102752"/>
-      <testcase name="testCanNotStoreData" class="TrackTest" classname="TrackTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\TrackTest.php" line="194" assertions="4" time="0.917101"/>
+    <testsuite name="TrackTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\TrackTest.php" tests="9" assertions="22" errors="0" warnings="0" failures="0" skipped="0" time="12.933433">
+      <testcase name="testCanAccessTracks" class="TrackTest" classname="TrackTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\TrackTest.php" line="23" assertions="1" time="1.371626"/>
+      <testcase name="testCountExactTracks" class="TrackTest" classname="TrackTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\TrackTest.php" line="29" assertions="2" time="1.482974"/>
+      <testcase name="testCountExactTracksGroupedByTypes" class="TrackTest" classname="TrackTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\TrackTest.php" line="72" assertions="6" time="1.725095"/>
+      <testcase name="testCanAccessTracking" class="TrackTest" classname="TrackTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\TrackTest.php" line="125" assertions="1" time="1.122012"/>
+      <testcase name="testTrackingEmpty" class="TrackTest" classname="TrackTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\TrackTest.php" line="131" assertions="3" time="1.281944"/>
+      <testcase name="testListNotEmpty" class="TrackTest" classname="TrackTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\TrackTest.php" line="147" assertions="2" time="1.466059"/>
+      <testcase name="testListHasExactNumber" class="TrackTest" classname="TrackTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\TrackTest.php" line="160" assertions="2" time="1.425496"/>
+      <testcase name="testCanStoreData" class="TrackTest" classname="TrackTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\TrackTest.php" line="178" assertions="1" time="1.319335"/>
+      <testcase name="testCanNotStoreData" class="TrackTest" classname="TrackTest" file="C:\Users\Uns\Desktop\Testes\TruckPad\backend\tests\TrackTest.php" line="194" assertions="4" time="1.738891"/>
     </testsuite>
   </testsuite>
 </testsuites>
