@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Driver extends Model
 {
     protected $fillable = [
-        "name", "cpf", "gender", "has_vehicles", "cnh_type", "cnh", "date_of_birth","phone"
+        "name", "cpf", "gender", "has_vehicles", "cnh_type", "cnh", "date_of_birth", "phone", "active"
     ];
 
     /**

@@ -19,9 +19,9 @@ use Faker\Generator as Faker;
 $factory->define(Driver::class, function (Faker $faker) {
     return [
         "name" => "Antonio Carlos",
-        "cpf" => 53274965399,
-        "cnh" => 57392866256,
-        "date_of_birth" => "31-03-1945",
+        "cpf" => 11111111111,
+        "cnh" => 11111111111,
+        "date_of_birth" => "1238599005453",
         "gender" => "M",
         "has_vehicles" => 1,
         "cnh_type" => "D"

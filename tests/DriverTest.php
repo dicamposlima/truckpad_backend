@@ -46,7 +46,10 @@ class DriverTest extends TestCase
         $content = isset($content->data) ? $content->data : [];
         $this->assertIsNotObject($content);
 
-        $driver = factory(Driver::class)->create();
+        $driver = factory(Driver::class)->create([
+            "cpf" => 53274943242,
+            "cnh" => 57398766252,
+        ]);
         factory(Track::class)->create([
             'driver_id' => $driver->id,
             'has_truckload' => 1,
@@ -57,7 +60,10 @@ class DriverTest extends TestCase
 
     public function testListNotEmpty()
     {
-        $driver = factory(Driver::class)->create();
+        $driver = factory(Driver::class)->create([
+            "cpf" => 39484965392,
+            "cnh" => 57309866252,
+        ]);
         factory(Track::class)->create([
             'driver_id' => $driver->id
         ]);
@@ -69,15 +75,24 @@ class DriverTest extends TestCase
 
     public function testListHasExactNumber()
     {
-        $joao = factory(Driver::class)->create();
+        $joao = factory(Driver::class)->create([
+            "cpf" => 53274965391,
+            "cnh" => 57392866251,
+        ]);
         factory(Track::class)->create([
             'driver_id' => $joao->id
         ]);
-        $pedro = factory(Driver::class)->create();
+        $pedro = factory(Driver::class)->create([
+            "cpf" => 53274965392,
+            "cnh" => 57392866252,
+        ]);
         factory(Track::class)->create([
             'driver_id' => $pedro->id
         ]);
-        $maria = factory(Driver::class)->create();
+        $maria = factory(Driver::class)->create([
+            "cpf" => 53274965393,
+            "cnh" => 57392866253,
+        ]);
         factory(Track::class)->create([
             'driver_id' => $maria->id
         ]);
@@ -89,16 +104,34 @@ class DriverTest extends TestCase
 
     public function testHasVehicleQtdIsExact()
     {
-        factory(Driver::class)->create(["has_vehicles" => 0]);
-        factory(Driver::class)->create(["has_vehicles" => 0]);
-        factory(Driver::class)->create(["has_vehicles" => 0]);
+        factory(Driver::class)->create([
+            "has_vehicles" => 0,
+            "cpf" => 53274965393,
+            "cnh" => 57392866253,
+            ]);
+        factory(Driver::class)->create([
+            "has_vehicles" => 0,
+            "cpf" => 53274965392,
+            "cnh" => 57392866252,
+        ]);
+        factory(Driver::class)->create([
+            "has_vehicles" => 0,
+            "cpf" => 53274965391,
+            "cnh" => 57392866251,
+        ]);
         $response = $this->json("GET", '/api/v1/drivers/hasVehiclesQtd');
         $response->assertResponseStatus(200);
         $content = json_decode($this->response->getContent());
         $this->assertEquals(0, $content->data);
 
-        factory(Driver::class)->create();
-        factory(Driver::class)->create();
+        factory(Driver::class)->create([
+            "cpf" => 53274965343,
+            "cnh" => 57392866234,
+        ]);
+        factory(Driver::class)->create([
+            "cpf" => 53274965342,
+            "cnh" => 57392866947,
+        ]);
         $response = $this->json("GET", '/api/v1/drivers/hasVehiclesQtd');
         $response->assertResponseStatus(200);
         $content = json_decode($this->response->getContent());
@@ -115,7 +148,7 @@ class DriverTest extends TestCase
                 "cnh_type" => "D",
                 "cnh" => 26462857289,
                 "cpf" => 16294627452,
-                "date_of_birth" => "04-12-1976"
+                "date_of_birth" => "1238599005453"
             ]
         ]);
         $this->assertResponseStatus(201);
@@ -131,7 +164,7 @@ class DriverTest extends TestCase
                 "cnh_type" => "G",
                 "cnh" => 26462857289,
                 "cpf" => 16294627452,
-                "date_of_birth" => "04-12-1976"
+                "date_of_birth" => "1238599005453"
             ]
         ]);
         $content = json_decode($this->response->getContent());
@@ -142,16 +175,19 @@ class DriverTest extends TestCase
 
     public function testCanUpdateData()
     {
-        $driver = factory(Driver::class)->create();
+        $driver = factory(Driver::class)->create([
+            "cpf" => 53274965392,
+            "cnh" => 57392866252,
+        ]);
         $this->put("/api/v1/drivers/{$driver->id}", [
             "payload" => [
                 "name" => "Carlos Antonio",
                 "gender" => "M",
                 "has_vehicles" => 0,
                 "cnh_type" => "E",
-                "cnh" => 26462857289,
-                "cpf" => 16294627452,
-                "date_of_birth" => "04-12-1976"
+                "cnh" => 26462857281,
+                "cpf" => 16294627453,
+                "date_of_birth" => "1238599005453"
             ]
         ]);
         $this->assertResponseStatus(201);
@@ -160,16 +196,19 @@ class DriverTest extends TestCase
 
     public function testCanNotUpdateData()
     {
-        $driver = factory(Driver::class)->create();
+        $driver = factory(Driver::class)->create([
+            "cpf" => 53274965392,
+            "cnh" => 57392866252,
+        ]);
         $this->put("/api/v1/drivers/{$driver->id}", [
             "payload" => [
                 "name" => "Antonio Carlos",
                 "gender" => "M",
                 "has_vehicles" => 0,
                 "cnh_type" => "G",
-                "cnh" => 26462857289,
+                "cnh" => 26462857282,
                 "cpf" => 16294627452,
-                "date_of_birth" => "04-12-1976"
+                "date_of_birth" => "1238599005453"
             ]
         ]);
         $content = json_decode($this->response->getContent());
@@ -182,9 +221,9 @@ class DriverTest extends TestCase
                 "gender" => "M",
                 "has_vehicles" => 0,
                 "cnh_type" => "E",
-                "cnh" => 26462857289,
-                "cpf" => 16294627452,
-                "date_of_birth" => "04-12-1976"
+                "cnh" => 26462857283,
+                "cpf" => 16294627451,
+                "date_of_birth" => "1238599005453"
             ]
         ]);
         $this->assertResponseStatus(400);

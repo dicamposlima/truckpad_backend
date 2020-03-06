@@ -191,6 +191,49 @@ class DriverController extends Controller
     }
 
     /**
+     * Update the Driver status.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateStatus(Request $request, $id)
+    {
+        try {
+            $driver = Driver::where('id', $id)->first();
+            if(!$driver) {
+                return response()->json([
+                    "status" => 400,
+                    "type" =>  "failure",
+                    "title" => "Saving data",
+                    "detail" => "Erro saving data, please try again."
+                ], 400);
+            }
+
+            if($driver->update(["active" => $request->payload["active"]])){
+                return response()->json([
+                    "status" => 201,
+                    'data' => "Saved successfully",
+                ], 201);
+            } else {
+                return response()->json([
+                    "status" => 400,
+                    "type" =>  "failure",
+                    "title" => "Saving data",
+                    "detail" => "Erro saving data, please try again."
+                ], 400);
+            }
+        } catch (Exception $e) {
+            return response()->json([
+                "status" => 500,
+                "type" =>  "failure",
+                "title" => "Internal Server Error",
+                "detail" => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    /**
      * Validate de data according to the rules below.
      * @param  \Illuminate\Http\Request  $request
      * @return bool | array
@@ -200,7 +243,7 @@ class DriverController extends Controller
         $validator = Validator::make($request->all(), [
             "payload.name" => [
                 "required",
-                "min:10",
+                "min:3",
             ],
             "payload.cpf" => [
                 "required",
@@ -214,9 +257,7 @@ class DriverController extends Controller
                 "required",
             ],
             "payload.phone" => [
-                "integer",
-                "max:11",
-                "min:10",
+                "integer"
             ],
             "payload.gender" => [
                 "required",
@@ -253,7 +294,7 @@ class DriverController extends Controller
         $driver["cnh_type"] = $request->payload["cnh_type"];
         $driver["cnh"] = $request->payload["cnh"];
         $driver["cpf"] = $request->payload["cpf"];
-        $driver["phone"] = isset($request->payload["phone"]) ?:null;
+        $driver["phone"] = isset($request->payload["phone"]) ? $request->payload["phone"] : null;
 
         return $driver;
     }

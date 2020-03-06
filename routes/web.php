@@ -33,6 +33,8 @@ $router->group(['prefix' => 'api/v1'], function () use ($router) {
 
     $router->put('/drivers/{id}', 'DriverController@update');
 
+    $router->put('/drivers/{id}/active', 'DriverController@updateStatus');
+
     $router->get('/tracks', 'TrackController@index');
 
     $router->post('/tracks', 'TrackController@store');
